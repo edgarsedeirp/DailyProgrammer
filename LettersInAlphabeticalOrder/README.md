@@ -1,4 +1,4 @@
-##[2015-08-17] Challenge #228 [Easy] Letters in Alphabetical Order [https://www.reddit.com/r/dailyprogrammer/comments/3h9pde/20150817_challenge_228_easy_letters_in/]
+### [2015-08-17] Challenge #228 [Easy] Letters in Alphabetical Order [https://www.reddit.com/r/dailyprogrammer/comments/3h9pde/20150817_challenge_228_easy_letters_in/]
 
 Description
 A handful of words have their letters in alphabetical order, that is nowhere in the word do you change direction in the word if you were to scan along the English alphabet. An example is the word "almost", which has its letters in alphabetical order.
