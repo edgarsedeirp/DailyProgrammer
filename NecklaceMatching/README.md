@@ -8,26 +8,28 @@ Generally, two strings describe the same necklace if you can remove some number 
 
 Write a function that returns whether two strings describe the same necklace.
 
-Examples
-same_necklace("nicole", "icolen") => true
-same_necklace("nicole", "lenico") => true
-same_necklace("nicole", "coneli") => false
-same_necklace("aabaaaaabaab", "aabaabaabaaa") => true
-same_necklace("abc", "cba") => false
-same_necklace("xxyyy", "xxxyy") => false
-same_necklace("xyxxz", "xxyxz") => false
-same_necklace("x", "x") => true
-same_necklace("x", "xx") => false
-same_necklace("x", "") => false
-same_necklace("", "") => true
-Optional Bonus 1
+Examples  :
+
+same_necklace("nicole", "icolen") => true  
+same_necklace("nicole", "lenico") => true  
+same_necklace("nicole", "coneli") => false  
+same_necklace("aabaaaaabaab", "aabaabaabaaa") => true  
+same_necklace("abc", "cba") => false  
+same_necklace("xxyyy", "xxxyy") => false  
+same_necklace("xyxxz", "xxyxz") => false  
+same_necklace("x", "x") => true  
+same_necklace("x", "xx") => false  
+same_necklace("x", "") => false  
+same_necklace("", "") => true  
+
+Optional Bonus 1  
 If you have a string of N letters and you move each letter one at a time from the start to the end, you'll eventually get back to the string you started with, after N steps. Sometimes, you'll see the same string you started with before N steps. For instance, if you start with "abcabcabc", you'll see the same string ("abcabcabc") 3 times over the course of moving a letter 9 times.
 
 Write a function that returns the number of times you encounter the same starting string if you move each letter in the string from the start to the end, one at a time.
 
-repeats("abc") => 1
-repeats("abcabcabc") => 3
-repeats("abcabcabcx") => 1
-repeats("aaaaaa") => 6
-repeats("a") => 1
-repeats("") => 1
+repeats("abc") => 1  
+repeats("abcabcabc") => 3  
+repeats("abcabcabcx") => 1  
+repeats("aaaaaa") => 6  
+repeats("a") => 1  
+repeats("") => 1  
