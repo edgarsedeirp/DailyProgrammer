@@ -35,23 +35,17 @@ public class Main {
         List<Integer> resultToReturn = new ArrayList<>();
 
         for (String value : input ) {
-            int sum, i;
-            sum = i = 0;
-            boolean validResult = false;
-            char[] valueAsCharArray = value.toCharArray();
+            int counter = 0;
+            while(value.length() > 1)  {
+                int sum = 0;
+                counter++;
 
-            for (char c : valueAsCharArray) {
-                sum += Character.getNumericValue(c);
-            }
-
-            while(!validResult){
-                i++;
-                if(sum < 10){
-                    validResult = true;
-                    resultToReturn.add(i);
+                for(int i=0; i<value.length(); i++){
+                    sum += Integer.parseInt(String.valueOf(value.charAt(i)));
                 }
-                sum = (sum % 10) + (sum / 10);
+                value = String.valueOf(sum);
             }
+            resultToReturn.add(counter);
         }
 
         return resultToReturn;
