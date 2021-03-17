@@ -2,19 +2,20 @@ package com.edgarsedeirp;
 
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
         List<List<String>> inputList = readInputFromFile();
+        List<String> bonusList = new ArrayList<>(Arrays.asList("abc", "abcabcabc", "abcabcabcx", "aaaaaa", "a", ""));
         for (List<String> input : inputList) {
             System.out.println(input.get(0) + " => " + input.get(1) + " : " + same_necklace(input.get(0), input.get(1)));
         }
-
+        System.out.println("------------BONUS----------------");
+        for (String string : bonusList) {
+            System.out.println("\"" + string + "\"" + " => " + repeats(string));
+        }
     }
 
     public static List<List<String>> readInputFromFile(){
@@ -53,5 +54,26 @@ public class Main {
         }
 
         return false;
+    }
+
+    public static int repeats(String input){
+        int count = 0;
+        int numberOfAttempts = input.length();
+        StringBuilder inputBuilder = new StringBuilder(input);
+
+        if(input.length() <= 1){
+            return 1;
+        }
+
+        while(numberOfAttempts > 0){
+            inputBuilder.append(inputBuilder.charAt(0));
+            inputBuilder = new StringBuilder(inputBuilder.substring(1));
+            numberOfAttempts--;
+            if(input.equals(inputBuilder.toString())){
+                count++;
+            }
+        }
+
+        return count;
     }
 }
