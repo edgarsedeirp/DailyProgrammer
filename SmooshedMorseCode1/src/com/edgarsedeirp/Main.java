@@ -35,19 +35,28 @@ public class Main {
     }
 
     private static void smorseBonus(){
-        List<String> veryLargeInputFromFile = readInputFromFile("InputForBonusChallenge.txt");
+        List<String> inputFromFile = readInputFromFile("InputForBonusChallenge.txt");
 
-        List<String> veryLargeInputToMorse = veryLargeInputFromFile.stream()
-                .map(Main::smorse)
-                .collect((Collectors.toList()));
+        Map<String, String> inputFromFileToMap = inputFromFile.stream()
+                .collect(Collectors.toMap(Function.identity(), Main::smorse));
 
         //Solution to Bonus 1.
+        List<String> inputFromFileToMorse = new ArrayList<>(inputFromFileToMap.values());
+
         Map<String, Long> frequencyMap =
-                veryLargeInputToMorse.stream()
+                inputFromFileToMorse.stream()
                         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         System.out.println("Solution to bonus 1 : " + getKeyFromValue(frequencyMap, 13L));
 
+        //Solution to Bonus 2.
+        String bonus2= inputFromFileToMap.entrySet().stream()
+                .filter(e -> e.getValue().contains("---------------"))
+                .map(Map.Entry::getKey)
+                .findFirst()
+                .orElse(null);
+
+        System.out.println("Solution to bonus 2 : " + bonus2);
     }
 
     private static String getKeyFromValue(Map<String, Long> map, Long value) {
