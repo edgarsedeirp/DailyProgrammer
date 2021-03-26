@@ -50,13 +50,59 @@ public class Main {
         System.out.println("Solution to bonus 1 : " + getKeyFromValue(frequencyMap, 13L));
 
         //Solution to Bonus 2.
-        String bonus2= inputFromFileToMap.entrySet().stream()
+        String bonus2 = inputFromFileToMap.entrySet().stream()
                 .filter(e -> e.getValue().contains("---------------"))
                 .map(Map.Entry::getKey)
                 .findFirst()
                 .orElse(null);
 
         System.out.println("Solution to bonus 2 : " + bonus2);
+
+        //Solution to Bonus 3.
+        List<String> bonus3 = inputFromFileToMap.entrySet().stream()
+                .filter(e -> e.getKey().length() == 21)
+                .filter(e -> perfectlyBalanced(e.getValue()))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toCollection(ArrayList::new));
+
+        System.out.println(bonus3);
+
+        //Solution to Bonus 4.
+        List<String> bonus4 = inputFromFileToMap.entrySet().stream()
+                .filter(e -> e.getKey().length() == 13)
+                .filter(e -> checkPalindrome(e.getValue()))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toCollection(ArrayList::new));
+
+        System.out.println(bonus4);
+    }
+
+    private static boolean checkPalindrome(String input){
+        int counter = 0;
+
+        for (int i = input.length() - 1; i > 0; i--) {
+            if(input.charAt(i) != input.charAt(counter++)){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private static boolean perfectlyBalanced(String input){
+        int countOfDots, countOfDashes;
+        countOfDots = countOfDashes = 0;
+
+        for (int i = 0; i < input.length(); i++) {
+            char character = input.charAt(i);
+            if(character == '.'){
+                countOfDots++;
+            }else if (character == '-'){
+                countOfDashes++;
+            }
+        }
+
+        return ( countOfDashes == countOfDots );
     }
 
     private static String getKeyFromValue(Map<String, Long> map, Long value) {
