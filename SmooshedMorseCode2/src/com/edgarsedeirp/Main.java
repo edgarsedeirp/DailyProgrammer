@@ -43,6 +43,7 @@ public class Main {
         }
     }
 
+    //LOGIC NEEDS TO BE REWORKED. ASSUMES PERFECT INPUT.. TAKES TOO LONG TO COMPLETE FOR BONUS 1
     private static String smalpha(String morseCodeToConvert){
         StringBuilder convertedMorseCode = new StringBuilder();
         List<String> usedValueList = new ArrayList<>();
